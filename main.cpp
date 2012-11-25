@@ -69,7 +69,7 @@ int WINAPI WinMain (HINSTANCE hThisInstance,
 }
 
 
-/*  This function is called by the Windows function DispatchMessage()  */
+/*  This function is called by the Windows function DispatchMessage() */
 
 LRESULT CALLBACK WindowProcedure (HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
