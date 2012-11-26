@@ -1,0 +1,36 @@
+# depslib dependency file v1.0
+1353797291 source:c:\users\sebastian\desktop\tester\database.cpp
+	"Database.h"
+
+1353797298 c:\users\sebastian\desktop\tester\database.h
+	<windows.h>
+	<sqlite3.h>
+	<string>
+	<iostream>
+	<sstream>
+	<vector>
+	"Data_test.h"
+	"Test.h"
+
+1353775033 c:\users\sebastian\desktop\tester\data_test.h
+	<windows.h>
+	<string>
+	<iostream>
+
+1353782752 c:\users\sebastian\desktop\tester\test.h
+	<windows.h>
+	<string>
+	<iostream>
+	<vector>
+	"Data_test.h"
+
+1353782858 source:c:\users\sebastian\desktop\tester\test.cpp
+	"Test.h"
+
+1353921019 source:c:\users\sebastian\desktop\tester\main.cpp
+	<windows.h>
+	"Database.h"
+
+1353775022 source:c:\users\sebastian\desktop\tester\data_test.cpp
+	"Data_test.h"
+

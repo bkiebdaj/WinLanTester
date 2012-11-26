@@ -1,4 +1,5 @@
 #include <windows.h>
+#include "Database.h"
 
 /*  Declare Windows procedure  */
 LRESULT CALLBACK WindowProcedure (HWND, UINT, WPARAM, LPARAM);
@@ -51,6 +52,29 @@ int WINAPI WinMain (HINSTANCE hThisInstance,
            hThisInstance,       /* Program Instance handler */
            NULL                 /* No Window Creation data */
            );
+
+//--------Testowanie bazy----------------------
+    Database db;
+    Test* testowy = db.StworzTest();
+    cout << "ID Testowego: " << testowy->GetID() << endl;
+    cout << "Start Date Testowego: " << testowy->GetStart_time() << endl;
+    Data_test* data_testowy = db.ZwrocNowyDataTest();
+    cout << "Nowy data_test"<<endl;
+    cout << "Id: " << data_testowy->GetID() << " Test_id: " << data_testowy->GetTestID() << " Time: " << data_testowy->GetTime() << " Weight: " << data_testowy->GetWeight() <<endl;
+    db.DodajKolejnyDataTest(1,44,55);
+    data_testowy = db.ZwrocNowyDataTest();
+    cout << "Nowy data_test"<<endl;
+    cout << "Id: " << data_testowy->GetID() << " Test_id: " << data_testowy->GetTestID() << " Time: " << data_testowy->GetTime() << " Weight: " << data_testowy->GetWeight() <<endl;
+    data_testowy = db.ZwrocDataTest(1);
+    cout << "Pierwszy data_test"<<endl;
+    cout << "Id: " << data_testowy->GetID() << " Test_id: " << data_testowy->GetTestID() << " Time: " << data_testowy->GetTime() << " Weight: " << data_testowy->GetWeight() <<endl;
+
+    db.ZakonczTest(2);
+    vector<Test*> testy = db.ZwrocWszystkieTesty();
+    cout << "Start Date Pierwszego: " << testy[0]->GetStart_time() << endl;
+//--------------------------------------------
+
+
 
     /* Make the window visible on the screen */
     ShowWindow (hwnd, nCmdShow);
