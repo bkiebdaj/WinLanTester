@@ -54,10 +54,6 @@ u_long Client::get_host(const std::string &h_name)
 }
 
 
-
-
-
-
 /** @brief (one liner)
   *
   * polaczenie z hostem

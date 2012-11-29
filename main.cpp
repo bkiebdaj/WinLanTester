@@ -1,6 +1,6 @@
 #include <windows.h>
 #include "Database.h"
-
+#include "client.h"
 /*  Declare Windows procedure  */
 LRESULT CALLBACK WindowProcedure (HWND, UINT, WPARAM, LPARAM);
 
@@ -74,7 +74,11 @@ int WINAPI WinMain (HINSTANCE hThisInstance,
     cout << "Start Date Pierwszego: " << testy[0]->GetStart_time() << endl;
 //--------------------------------------------
 
-
+//--------------Testowanie klienta-----------
+    Client klient;
+    klient.connect_to_host("localhost",100);
+    klient.close();
+//--------------Koniec testu klienta---------
 
     /* Make the window visible on the screen */
     ShowWindow (hwnd, nCmdShow);
