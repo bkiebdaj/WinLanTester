@@ -16,6 +16,7 @@
 				</Compiler>
 				<Linker>
 					<Add option="-lsqlite3" />
+					<Add option="-lws2_32" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -28,6 +29,7 @@
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
+					<Add option="-lsqlite3" />
 				</Linker>
 			</Target>
 		</Build>
@@ -45,6 +47,8 @@
 		<Unit filename="Database.h" />
 		<Unit filename="Test.cpp" />
 		<Unit filename="Test.h" />
+		<Unit filename="client.cpp" />
+		<Unit filename="client.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
