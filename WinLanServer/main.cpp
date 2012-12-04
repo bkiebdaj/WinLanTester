@@ -6,6 +6,6 @@ int main()
 {
     Server serw;
     serw.start(100);
-    serw.stop();
+    serw.clean();
     return 0;
 }

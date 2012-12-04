@@ -12,6 +12,7 @@ class Server
 
         bool init();
 
+
     public:
         /** Default constructor */
         Server();
@@ -19,7 +20,8 @@ class Server
         virtual ~Server();
 
         void start(u_short port);
-        void stop();
+        void wating_for_connection();
+        void clean();
 };
 
 #endif // SERVER_H
