@@ -62,7 +62,7 @@
 1354107131 source:c:\documents and settings\pecet\moje dokumenty\gitproject\winlantester\test.cpp
 	"Test.h"
 
-1354201128 source:c:\documents and settings\pecet\moje dokumenty\gitproject\winlantester\main.cpp
+1354894936 source:c:\documents and settings\pecet\moje dokumenty\gitproject\winlantester\main.cpp
 	<windows.h>
 	"Database.h"
 	"client.h"
@@ -70,11 +70,11 @@
 1354107131 source:c:\documents and settings\pecet\moje dokumenty\gitproject\winlantester\data_test.cpp
 	"Data_test.h"
 
-1354199287 source:c:\documents and settings\pecet\moje dokumenty\gitproject\winlantester\client.cpp
+1354890115 source:c:\documents and settings\pecet\moje dokumenty\gitproject\winlantester\client.cpp
 	"client.h"
 	<iostream>
 
-1354198670 c:\documents and settings\pecet\moje dokumenty\gitproject\winlantester\client.h
+1354894731 c:\documents and settings\pecet\moje dokumenty\gitproject\winlantester\client.h
 	<winsock2.h>
 	<string>
 

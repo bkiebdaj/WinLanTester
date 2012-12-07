@@ -77,7 +77,7 @@ int WINAPI WinMain (HINSTANCE hThisInstance,
 //--------------Testowanie klienta-----------
     Client klient;
     klient.connect_to_host("localhost",100);
-    klient.close();
+    klient.make_test("4");
 //--------------Koniec testu klienta---------
 
     /* Make the window visible on the screen */
@@ -91,7 +91,8 @@ int WINAPI WinMain (HINSTANCE hThisInstance,
         /* Send message to WindowProcedure */
         DispatchMessage(&messages);
     }
-
+//zamykanie klienta
+    klient.close();
     /* The program return-value is 0 - The value that PostQuitMessage() gave */
     return messages.wParam;
 }

@@ -21,6 +21,8 @@ class Server
 
         void start(u_short port);
         void wating_for_connection();
+        int recieve_seconds();
+        void send_KB();
         void clean();
 };
 
