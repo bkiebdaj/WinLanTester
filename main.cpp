@@ -76,8 +76,8 @@ int WINAPI WinMain (HINSTANCE hThisInstance,
 
 //--------------Testowanie klienta-----------
     Client klient;
-    klient.connect_to_host("localhost",100);
-    klient.make_test("4");
+    if(klient.connect_to_host("localhost",100))
+        klient.make_test("4");
 //--------------Koniec testu klienta---------
 
     /* Make the window visible on the screen */

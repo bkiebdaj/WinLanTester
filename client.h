@@ -26,6 +26,4 @@ class Client
         void make_test(const std::string &seconds);
 };
 
-DWORD WINAPI recieving_KB(LPVOID param);
-
 #endif // CLIENT_H

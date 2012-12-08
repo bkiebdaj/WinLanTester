@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1354888669 source:c:\documents and settings\pecet\moje dokumenty\gitproject\winlantester\winlanserver\server.cpp
+1354977739 source:c:\documents and settings\pecet\moje dokumenty\gitproject\winlantester\winlanserver\server.cpp
 	"server.h"
 	<iostream>
 	<windows.h>
@@ -7,7 +7,7 @@
 1354885104 c:\documents and settings\pecet\moje dokumenty\gitproject\winlantester\winlanserver\server.h
 	<winsock2.h>
 
-1354620126 source:c:\documents and settings\pecet\moje dokumenty\gitproject\winlantester\winlanserver\main.cpp
+1354977658 source:c:\documents and settings\pecet\moje dokumenty\gitproject\winlantester\winlanserver\main.cpp
 	<iostream>
 	"server.h"
 

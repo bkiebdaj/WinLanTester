@@ -97,13 +97,13 @@ bool Client::connect_to_host(const std::string &h_name, u_short port)
     if(init())
     {
         host_name = h_name;
-        addr.sin_addr.S_un.S_addr = get_host(h_name);  //nazwa hosta
+        addr.sin_addr.s_addr = get_host(h_name);  //nazwa hosta
         addr.sin_family = AF_INET;      //IPv4
         addr.sin_port = htons(port);    //port hosta
         if(connect(sock, (sockaddr*)&addr, sizeof(sockaddr)) == SOCKET_ERROR )
         {
             sock = INVALID_SOCKET;
-            std::cout<<"blad gniazda (connect)"<<std::endl;
+            std::cout<<"nie udalo sie polaczyc z serwerem (connect)!"<<std::endl;
             //std::cout<<"kod bledu = "<<WSAGetLastError()<<std::endl;
             return false;
         }
@@ -145,7 +145,7 @@ void Client::make_test(const std::string &seconds)
 
 /** @brief (one liner)
   *
-  *zamykanie polaczenia
+  * zamykanie polaczenia
   */
 void Client::close()
 {

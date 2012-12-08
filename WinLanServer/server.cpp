@@ -47,7 +47,7 @@ bool Server::init()
 int Server::recieve_seconds()
 {
     char buffer[512];
-    int result = recv(client_sock, buffer, 511, 0);
+    recv(client_sock, buffer, 511, 0);
     int ile = atoi(buffer);
     std::cout<<atoi(buffer)<<" sekund(y/a)"<<std::endl;
     return ile;
@@ -60,7 +60,7 @@ int Server::recieve_seconds()
 void Server::send_KB()
 {
     char buffer[4096];
-    int result = send(client_sock, buffer, 4096, 0);
+    send(client_sock, buffer, 4096, 0);
 }
 
 //watek, ktory przesyla dane do klienta dopoki zmienna "ile" nie jest zerem

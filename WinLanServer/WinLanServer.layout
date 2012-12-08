@@ -4,10 +4,10 @@
 	<File name="main.cpp" open="1" top="0" tabpos="3">
 		<Cursor position="133" topLine="0" />
 	</File>
-	<File name="server.cpp" open="1" top="1" tabpos="2">
-		<Cursor position="2083" topLine="76" />
+	<File name="server.cpp" open="1" top="0" tabpos="2">
+		<Cursor position="920" topLine="0" />
 	</File>
-	<File name="server.h" open="1" top="0" tabpos="1">
-		<Cursor position="574" topLine="4" />
+	<File name="server.h" open="1" top="1" tabpos="1">
+		<Cursor position="611" topLine="0" />
 	</File>
 </CodeBlocks_layout_file>
