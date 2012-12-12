@@ -8,7 +8,7 @@ Database::Database()
     sqlite3_open("Database.sqlite", &database);
 
     sqlite3_stmt *statement;
-
+    /* pozwolilem sobie zakomentowac do testow ;)......Igor
     // na razie usuwam tabele za kazdym razem w celach testowych
     if(sqlite3_prepare_v2(database, "DROP TABLE test", -1, &statement, 0) == SQLITE_OK) // metoda sqlite3_prepare_v2 kompiluje SQL querry do byte-code
 	{
@@ -29,7 +29,7 @@ Database::Database()
         result = sqlite3_step(statement);
 		sqlite3_finalize(statement);
 	}
-
+    */
 
 	string zapytanie =  (string)"CREATE TABLE IF NOT EXISTS test ("
                                     +"id INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -54,6 +54,7 @@ Database::Database()
         result = sqlite3_step(statement);
 		sqlite3_finalize(statement);
 	}
+	/*
     if(sqlite3_prepare_v2(database, "INSERT INTO test(start_date, finish_date) VALUES('2012-11-23 19:19:00', '2012-11-23 19:20:00');", -1, &statement, 0) == SQLITE_OK)
 	{
 		int result = 0;
@@ -72,7 +73,7 @@ Database::Database()
 		int result = 0;
         result = sqlite3_step(statement);
 		sqlite3_finalize(statement);
-	}
+	}*/
 }
 Test* Database::StworzTest()
 {

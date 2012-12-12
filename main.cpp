@@ -54,6 +54,7 @@ int WINAPI WinMain (HINSTANCE hThisInstance,
            );
 
 //--------Testowanie bazy----------------------
+/* Narazie zakomentowalem do testow z klientem i serwerem.... Igor
     Database db;
     Test* testowy = db.StworzTest();
     cout << "ID Testowego: " << testowy->GetID() << endl;
@@ -72,12 +73,14 @@ int WINAPI WinMain (HINSTANCE hThisInstance,
     db.ZakonczTest(2);
     vector<Test*> testy = db.ZwrocWszystkieTesty();
     cout << "Start Date Pierwszego: " << testy[0]->GetStart_time() << endl;
+    */
 //--------------------------------------------
 
 //--------------Testowanie klienta-----------
     Client klient;
     if(klient.connect_to_host("localhost",100))
         klient.make_test("4");
+
 //--------------Koniec testu klienta---------
 
     /* Make the window visible on the screen */

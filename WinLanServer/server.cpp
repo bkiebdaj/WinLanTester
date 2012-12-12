@@ -40,27 +40,15 @@ bool Server::init()
     return true;
 }
 
-/** @brief recieve_seconds
-  *
-  * pobiera i zwraca liczbe sekund przez jaka serwer ma wysylac dane
-  */
-int Server::recieve_seconds()
-{
-    char buffer[512];
-    recv(client_sock, buffer, 511, 0);
-    int ile = atoi(buffer);
-    std::cout<<atoi(buffer)<<" sekund(y/a)"<<std::endl;
-    return ile;
-}
 
 /** @brief send_KB
   *
   * wysyla 4KB danych do klienta
   */
-void Server::send_KB()
+int Server::send_KB()
 {
     char buffer[4096];
-    send(client_sock, buffer, 4096, 0);
+    return send(client_sock, buffer, 4096, 0);
 }
 
 //watek, ktory przesyla dane do klienta dopoki zmienna "ile" nie jest zerem
@@ -68,9 +56,12 @@ DWORD WINAPI sending_KB(LPVOID param)
 {
     void **table = (void**)param;
     Server *ser = (Server*)table[1];
-    int *ile = (int*)table[0];
-    while(*ile)
-        ser->send_KB();
+    int ile = 1;
+    while(ile > 0)
+    {
+        ile = ser->send_KB();
+        std::cout<<"wyslano = "<<ile<<std::endl;
+    }
     std::cout<<"zakonczono przesylanie"<<std::endl;
     return 0;
 }
@@ -99,15 +90,16 @@ void Server::wating_for_connection()
     while( client_sock = accept(serv_sock, NULL, NULL) )
     {
         std::cout<<"polaczono!"<<std::endl; //gdy klient polaczy sie z serwerem
-        int ile = recieve_seconds();        //serwer pobiera liczbe sekund, jak dlugo ma wysylac pakiety
-        void *par1 = &ile;
+        //int ile = recieve_seconds();        //serwer pobiera liczbe sekund, jak dlugo ma wysylac pakiety
+        //void *par1 = &ile;
         void *par2 = this;
         void **table = new void*[2];
-        table[0] = par1;
+        //table[0] = par1;
         table[1] = par2;                    //po utworzeniu watku, ktory bedzie wysylal pakiety do klienta
-        CreateThread(NULL, 0, sending_KB, (LPVOID)table, 0, NULL);
-        Sleep(ile*1000);                    //usypiamy "glowny" watek na liczbe sekund przekazana przez klienta
-        ile = 0;                            //nastepnie ustawiamy zmienna "ile" na "0" aby przerwac dzialanie
+        HANDLE thread = CreateThread(NULL, 0, sending_KB, (LPVOID)table, 0, NULL);
+        //Sleep(ile*1000);                    //usypiamy "glowny" watek na liczbe sekund przekazana przez klienta
+        WaitForSingleObject(thread, INFINITE);
+        //ile = 0;                            //nastepnie ustawiamy zmienna "ile" na "0" aby przerwac dzialanie
         closesocket(client_sock);           //wczesniej utworzonego watku i zamykamy polaczenie aby klient przestal pobierac dane
     }
 }

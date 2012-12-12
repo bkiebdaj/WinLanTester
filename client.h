@@ -20,7 +20,6 @@ class Client
         virtual ~Client();
 
         bool connect_to_host(const std::string &h_name, u_short port);
-        bool send_seconds(const std::string &seconds);
         int recieve_KB();
         void close();
         void make_test(const std::string &seconds);

@@ -9,7 +9,6 @@ class Server
         SOCKET serv_sock; //!< Member variable "serv_sock"
         sockaddr_in addr; //!< Member variable "addr"
         SOCKET client_sock; //!< Member variable "client_sock"
-
         bool init();
 
 
@@ -21,8 +20,7 @@ class Server
 
         void start(u_short port);
         void wating_for_connection();
-        int recieve_seconds();
-        void send_KB();
+        int send_KB();
         void clean();
 };
 

@@ -1,5 +1,8 @@
 #include "client.h"
 #include<iostream>
+#include"Database.h"
+#include"Data_test.h"
+#include"Test.h"
 Client::Client()
 {
     ZeroMemory(&data, sizeof(data)); //funkcja, która zeruje strukturke
@@ -68,21 +71,18 @@ int Client::recieve_KB()
 
 
 //procedura watku, w ktorym klient odbiera kilobajtowy pakiet od serwera
-//watek przestaje dzialac gdy serwer przestanie przesylac...
+//
 
 DWORD WINAPI recieving_KB(LPVOID param)
 {
-    Client *ser = (Client*)param;
-    int result = 1;
-    int sum = 0;
-    std::cout<<"tu jest jeszcze"<<std::endl;
-    while(result > 0)           //petla konczy sie gdy serwer zerwie polaczenie
+    void **table = (void**)param;
+    Client *ser = (Client*)table[0];
+    int *result = (int*)table[1];
+    int *sum = (int*)table[2];
+    while(*result)           //
     {
-        result = ser->recieve_KB();
-        std::cout<<"result = "<<result<<std::endl;
-        sum += result;
+        *sum += ser->recieve_KB();
     }
-    std::cout<<"suma = "<<sum<<std::endl;
     return 0;
 }
 
@@ -112,34 +112,34 @@ bool Client::connect_to_host(const std::string &h_name, u_short port)
     return false;
 }
 
-/** @brief send_seconds
-  *
-  * wysyla serwerowi przez ile sekund ma przesylac pakiety
-  */
-bool Client::send_seconds(const std::string &seconds)
-{
-    int result = send(sock, seconds.c_str(), seconds.size(), 0);
-    if(result == SOCKET_ERROR)
-    {
-        std::cout<<"socket error! (client::send_message)"<<std::endl;
-        return false;
-    }
-    return true;
-}
+
 
 /** @brief make_test
   *
-  * @todo: document this function
+  * tworzy test
   */
 void Client::make_test(const std::string &seconds)
 {
-    if(send_seconds(seconds))
+    int sek = atol(seconds.c_str());
+    int sum = 0;
+    void **table = new void*[3];
+    table[0] = this;
+    table[1] = &sek;
+    table[2] = &sum;
+    Database baza;
+    Test *newTest = baza.StworzTest();
+    CreateThread(NULL, 0, recieving_KB, (LPVOID)table, 0,NULL);
+    for(int i=0;i<sek;++i)
     {
-        CreateThread(NULL, 0, recieving_KB, this, 0,NULL);
+        Sleep(1000);
+        std::cout<<"suma = "<<sum<<std::endl;
+        baza.DodajKolejnyDataTest(newTest->GetID(), i + 1, sum);
+        sum = 0;
     }
+    baza.ZakonczTest(newTest->GetID());
+    sek = 0;
+    closesocket(sock);
 }
-
-
 
 
 
