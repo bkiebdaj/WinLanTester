@@ -8,24 +8,24 @@
 		<Cursor position="0" topLine="9" />
 	</File>
 	<File name="Database.cpp" open="1" top="0" tabpos="8">
-		<Cursor position="3334" topLine="298" />
+		<Cursor position="3334" topLine="23" />
 	</File>
-	<File name="Database.h" open="0" top="0" tabpos="4">
-		<Cursor position="265" topLine="9" />
+	<File name="Database.h" open="1" top="1" tabpos="12">
+		<Cursor position="1327" topLine="45" />
 	</File>
 	<File name="Test.cpp" open="1" top="0" tabpos="7">
-		<Cursor position="857" topLine="0" />
+		<Cursor position="857" topLine="44" />
 	</File>
 	<File name="Test.h" open="1" top="0" tabpos="5">
-		<Cursor position="596" topLine="7" />
+		<Cursor position="596" topLine="27" />
 	</File>
-	<File name="client.cpp" open="1" top="1" tabpos="2">
-		<Cursor position="5028" topLine="118" />
+	<File name="client.cpp" open="1" top="0" tabpos="2">
+		<Cursor position="7138" topLine="154" />
 	</File>
 	<File name="client.h" open="1" top="0" tabpos="3">
-		<Cursor position="882" topLine="0" />
+		<Cursor position="531" topLine="2" />
 	</File>
 	<File name="main.cpp" open="1" top="0" tabpos="1">
-		<Cursor position="4074" topLine="70" />
+		<Cursor position="4504" topLine="74" />
 	</File>
 </CodeBlocks_layout_file>
