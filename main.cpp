@@ -199,14 +199,16 @@ LRESULT CALLBACK WindowProcedure (HWND hwnd, UINT message, WPARAM wParam, LPARAM
 
                     vector<Data_test*> data_test = actualTest->GetAllDataTests();
 
+                    if(data_test.size() > 0){
+                        MoveToEx(hdc,30,540,0);
 
-                    MoveToEx(hdc,30,540,0);
+                        int step = 510/data_test.size();
 
-                    int step = 510/data_test.size();
-
-                    for(int i = 0; i<data_test.size();i++){
-                        LineTo(hdc,30+(i+1)*step,540 - data_test[i]->GetWeight()/1024/2);
+                        for(int i = 0; i<data_test.size();i++){
+                            LineTo(hdc,30+(i+1)*step,540 - data_test[i]->GetWeight()/1024/2);
+                        }
                     }
+
 
                }
 
