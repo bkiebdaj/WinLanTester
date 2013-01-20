@@ -50,6 +50,8 @@
 		<Unit filename="client.cpp" />
 		<Unit filename="client.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="tools.cpp" />
+		<Unit filename="tools.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

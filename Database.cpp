@@ -408,4 +408,88 @@ Test* Database::ZwrocTest(int id)
     return test;
 }
 
+Test* Database::ZwrocTestPoDacie(string data)
+{
+    cout<<"data == "<<data<<endl;
+    Test* test = new Test();
+    vector<Data_test*> data_testy;
 
+    string s_id, querry;
+    ostringstream ss;
+    sqlite3_stmt *statement;
+
+    querry = "SELECT * FROM test WHERE start_date = '"+data+"';";   //pobieramy test o podanym id
+    if(sqlite3_prepare_v2(database, querry.c_str(), -1, &statement, 0) == SQLITE_OK)
+	{
+        int cols = sqlite3_column_count(statement);
+		int result = 0;
+		int tmp_id;
+		string tmp_start, tmp_finish;
+		stringstream iss;
+		while(true)
+		{
+			result = sqlite3_step(statement);
+
+			if(result == SQLITE_ROW)
+			{
+                string s = (char*)sqlite3_column_text(statement, 0);
+                iss.str(s);
+                iss >> tmp_id;
+                tmp_start = (char*)sqlite3_column_text(statement, 1);
+                tmp_finish = (char*)sqlite3_column_text(statement, 2);
+			}
+			else
+			{
+				break;
+			}
+			cout<<"tempID="<<tmp_id<<endl;
+			test->SetID(tmp_id);
+			test->SetStart_time(tmp_start);
+			test->SetFinish_time(tmp_finish);
+		}
+        sqlite3_finalize(statement);
+	}
+
+    ss << test->GetID();
+    s_id = ss.str();
+
+    querry = "SELECT * FROM data_test WHERE test_id = "+s_id+";"; // pobieramy wszystkie data_testy, ktore naleza do testu o podanym id
+
+    if(sqlite3_prepare_v2(database, querry.c_str(), -1, &statement, 0) == SQLITE_OK)
+	{
+        int cols = sqlite3_column_count(statement);
+		int result = 0;
+		vector<int> data;
+		int tmp;
+		stringstream iss;
+		while(true) // w kazdym przejsciu petli przechodzimy po kolejnych wierszach
+		{
+			result = sqlite3_step(statement); //jesli wynikiem kolejnego kroku jest wiersz to pobieramy dane, jesli nie to przerywamy petle
+
+			if(result == SQLITE_ROW)
+			{
+				for(int col = 0; col < cols; col++)
+				{
+					string s = (char*)sqlite3_column_text(statement, col);
+                    iss.str(s);
+                    iss >> tmp;
+                    data.push_back(tmp);
+                    iss.clear();
+				}
+                data_testy.push_back(new Data_test(data[0],data[1],data[2],data[3]));
+                data.clear();
+			}
+			else
+			{
+				break;
+			}
+		}
+        sqlite3_finalize(statement);
+	}
+    //zapisujemy data_testy do testu
+    for(int i =0 ; i < data_testy.size();i++)
+    {
+        test->AddDataTest(data_testy[i]);
+    }
+    return test;
+}

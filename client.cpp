@@ -139,6 +139,7 @@ DWORD WINAPI starting_thread(LPVOID param)
     }
     baza.ZakonczTest(newTest->GetID());// metoda ZakonczTest ustawia nam date i czas konca testu podanego jako parametr
     closesocket(client->get_socket());//przerywa polaczenie z serwerem; dzieki temu serwer przestaje przesylac dane
+    delete []parameters;
     return 0;
 }
 
