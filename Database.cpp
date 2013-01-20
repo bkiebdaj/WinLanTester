@@ -303,6 +303,7 @@ vector<Test*> Database::ZwrocWszystkieTesty() // musimy pobracy wszystkie data_t
                 tmp_finish = (char*)sqlite3_column_text(statement, 2);
 
                 testy.push_back(new Test(tmp_id, tmp_start, tmp_finish));
+                iss.clear();
 			}
 			else
 			{
