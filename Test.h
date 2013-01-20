@@ -22,6 +22,7 @@ class Test
         Test();
         Test(int new_id, string start);
         Test(int new_id, string start, string finish);
+
         void SetID(int new_id);
         void SetStart_time(string start);
         void SetFinish_time(string finish);

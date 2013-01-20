@@ -36,5 +36,5 @@ void startRefresh(){
 
 void stopRefresh(){
     started = false ;
-    WaitForSingleObject(rewriteHandle,INFINITE);
+    WaitForSingleObject(rewriteHandle,1000);
 }

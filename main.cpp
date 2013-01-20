@@ -209,6 +209,10 @@ LRESULT CALLBACK WindowProcedure (HWND hwnd, UINT message, WPARAM wParam, LPARAM
                         }
                     }
 
+                    writeText(hwnd,0,550,actualTest->GetStart_time().c_str());
+                    writeText(hwnd,420,550,actualTest->GetFinish_time().c_str());
+
+
 
                }
 
