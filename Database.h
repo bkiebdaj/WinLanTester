@@ -59,7 +59,8 @@ class Database
         * @param wg wartosc bedaca wynikiem testu
         *
         */
-        Test* ZwrocTestPoDacie(string data);
+        Test* ZwrocTestPoDacie(string data);// pozwoli³em sobie dodaæ tak¹ metodê na podstawie powy¿szej
+                                            // bo bardzo siê przyda;> ---- Igor
         void DodajKolejnyDataTest(int id_testu, int tm, int wg);
 
 };

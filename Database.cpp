@@ -408,6 +408,10 @@ Test* Database::ZwrocTest(int id)
     return test;
 }
 
+
+
+//metoda zwraca Test po dacie rozpoczêcia testu
+//w zasadzie skopiowany kod z powy¿szego tylko odrobine zmieniony ;) ---- made by Igor;>
 Test* Database::ZwrocTestPoDacie(string data)
 {
     cout<<"data == "<<data<<endl;

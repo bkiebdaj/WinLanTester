@@ -52,7 +52,7 @@
 	<string>
 	<iostream>
 
-1358518620 c:\documents and settings\pecet\moje dokumenty\gitproject\winlantester\test.h
+1358691939 c:\documents and settings\pecet\moje dokumenty\gitproject\winlantester\test.h
 	<windows.h>
 	<string>
 	<iostream>
@@ -62,7 +62,7 @@
 1354107131 source:c:\documents and settings\pecet\moje dokumenty\gitproject\winlantester\test.cpp
 	"Test.h"
 
-1358691487 source:c:\documents and settings\pecet\moje dokumenty\gitproject\winlantester\main.cpp
+1358692936 source:c:\documents and settings\pecet\moje dokumenty\gitproject\winlantester\main.cpp
 	<windows.h>
 	"Database.h"
 	"client.h"
@@ -71,7 +71,7 @@
 1354107131 source:c:\documents and settings\pecet\moje dokumenty\gitproject\winlantester\data_test.cpp
 	"Data_test.h"
 
-1356605437 source:c:\documents and settings\pecet\moje dokumenty\gitproject\winlantester\client.cpp
+1358691940 source:c:\documents and settings\pecet\moje dokumenty\gitproject\winlantester\client.cpp
 	"client.h"
 	<iostream>
 	"Database.h"
@@ -138,11 +138,11 @@
 1358631054 source:c:\users\bartosz kiebdaj\programowanie\winlantest\tools.cpp
 	"tools.h"
 
-1358608840 c:\documents and settings\pecet\moje dokumenty\gitproject\winlantester\tools.h
+1358693059 c:\documents and settings\pecet\moje dokumenty\gitproject\winlantester\tools.h
 	<windows.h>
 	"Database.h"
 	"client.h"
 
-1358608840 source:c:\documents and settings\pecet\moje dokumenty\gitproject\winlantester\tools.cpp
+1358691939 source:c:\documents and settings\pecet\moje dokumenty\gitproject\winlantester\tools.cpp
 	"tools.h"
 

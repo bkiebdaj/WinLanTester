@@ -228,14 +228,20 @@ LRESULT CALLBACK WindowProcedure (HWND hwnd, UINT message, WPARAM wParam, LPARAM
             if(( HWND ) lParam == stopButton ){
                 klient.stop_test();
                 stopRefresh();
+                vector<Test*> testy = database.ZwrocWszystkieTesty();
+                Test *new_test = testy[testy.size()-1];//dodajemy ostatnio utworzony test do combobox'a
+                SendMessage(testsList,CB_ADDSTRING,0,(LPARAM) new_test->GetStart_time().c_str());
                 break;
             }
             if(( HWND ) lParam == testsList ){
                 int tempIndex = SendMessage(testsList,CB_GETCURSEL,0,0);
                 if(selectIndex != tempIndex){
+                    char buffer[100];       //bufor, który bêdzie przechowywa³ datê odczytana z combobox'a
+                    SendMessage(testsList,CB_GETLBTEXT,tempIndex,(LPARAM)buffer);//odczyt wybranej daty z combobox'a
+                    cout<<"bufor = "<<buffer<<endl;//wypisywanie daty na standardowe wyjœcie by zobaczyæ czy dobrze dzia³a;)
+                    actualTest = database.ZwrocTestPoDacie(buffer); //nowa metoda dodana przeze mnie(wiadomo co siê dzieje;)
                     selectIndex = tempIndex ;
-                    actualTest = database.ZwrocTest(selectIndex+1);
-                    cout<<actualTest->GetID()<<endl;
+                    cout<<actualTest->GetID()<<endl;    //wypisywanie ID zwroconego testu(ale to chyba bylo wczesniej juz)
 
                     InvalidateRect(childhwnd,NULL,true);
                     RedrawWindow(childhwnd, NULL, NULL, RDW_INVALIDATE | RDW_UPDATENOW);
