@@ -9,6 +9,8 @@
 
 using namespace std;
 
+
+
 class Test
 {
     private:
@@ -45,5 +47,5 @@ class Test
 
 
 };
-
+extern Test *actualTest;
 #endif //TEST_H
