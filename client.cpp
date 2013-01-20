@@ -125,8 +125,10 @@ DWORD WINAPI starting_thread(LPVOID param)
     void **parameters = new void*[2];
     parameters[0] = client;
     parameters[1] = &sum;
-    Database baza;          //laczymy sie z baza, tudziez tworzymy nowa jesli nie istnieje
+    Database baza;
+             //laczymy sie z baza, tudziez tworzymy nowa jesli nie istnieje
     Test *newTest = baza.StworzTest();  //tworzymy nowy test w bazie
+    actualTest = newTest ;
     int second = 1;                   //tworzy nastepny watek, ktory bedzie odbieral 4KB przeslanych danych
                                     //watek zakonczy sie kiedy wykonana zostanie metoda stop_test
     CreateThread(NULL, 0, recieving_thread, (LPVOID)parameters, 0, NULL);
@@ -135,7 +137,8 @@ DWORD WINAPI starting_thread(LPVOID param)
         Sleep(1000);                //dodac kolejny data_test do utworzonego testu
         baza.DodajKolejnyDataTest(newTest->GetID(), second, sum);   //dodajemy co sekunde nowy data_test do nowoutworzonego testu
         sum = 0;                    //zerujemy licznik przeslanych danych
-        ++second;                   //inkrementujemy zmienna, ktora przechowuje aktualna sekunde dzialania watku
+        ++second;
+        actualTest->AddDataTest(baza.ZwrocNowyDataTest());                //inkrementujemy zmienna, ktora przechowuje aktualna sekunde dzialania watku
     }
     baza.ZakonczTest(newTest->GetID());// metoda ZakonczTest ustawia nam date i czas konca testu podanego jako parametr
     closesocket(client->get_socket());//przerywa polaczenie z serwerem; dzieki temu serwer przestaje przesylac dane

@@ -191,7 +191,7 @@ LRESULT CALLBACK WindowProcedure (HWND hwnd, UINT message, WPARAM wParam, LPARAM
 
                for(int i = 0 ; i<= 10 ; i++){
                     char temp[10] ;
-                    itoa(i*100,temp,10);
+                    itoa(i*200,temp,10);
                     writeText(hwnd,0,530 - ( i * 50 ),temp);
                }
 
@@ -205,7 +205,7 @@ LRESULT CALLBACK WindowProcedure (HWND hwnd, UINT message, WPARAM wParam, LPARAM
                         int step = 510/data_test.size();
 
                         for(int i = 0; i<data_test.size();i++){
-                            LineTo(hdc,30+(i+1)*step,540 - data_test[i]->GetWeight()/1024/2);
+                            LineTo(hdc,30+(i+1)*step,540 - data_test[i]->GetWeight()/1024/4);
                         }
                     }
 
@@ -222,10 +222,12 @@ LRESULT CALLBACK WindowProcedure (HWND hwnd, UINT message, WPARAM wParam, LPARAM
             if(( HWND ) lParam == startButton ){
                 if(klient.connect_to_host("localhost",100))
                 klient.start_test();
+                startRefresh();
                 break;
             }
             if(( HWND ) lParam == stopButton ){
                 klient.stop_test();
+                stopRefresh();
                 break;
             }
             if(( HWND ) lParam == testsList ){
